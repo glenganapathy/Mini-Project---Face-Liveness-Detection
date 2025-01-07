@@ -1,0 +1,323 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>LivenessDetect</title>
+        {% load static %}
+        <link rel="icon" href="{% static 'logo.png' %}" type="image/x-icon" />
+		<!-- Bootstrap CSS -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Orbitron:wght@400..900&family=Sora:wght@100..800&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+			/* Custom Styles */
+			body {
+			font-family: "Lato";
+            font-size: 25px;
+			}
+			.header {
+            background: linear-gradient(135deg, #FF7E5F, #FF6F20);
+			color: white;
+			padding: 0px 20px;
+			}
+			.nav-link {
+			color: white !important;
+            padding-left: 50px !important;
+			}
+            .nav-link:hover   {
+                transform: scale(1.2);
+                }
+
+            .navbar-brand {
+            padding-top: var(--bs-navbar-brand-padding-y);
+            padding-bottom: var(--bs-navbar-brand-padding-y);
+            margin-right: var(--bs-navbar-brand-margin-end);
+            font-size: 35px; 
+            color: var(--bs-navbar-brand-color);
+            text-decoration: none;
+            white-space: nowrap;
+            }
+			.image-placeholder {
+			width: 100%;
+			height: 300px;
+			background-color: #ddd;
+			border: 2px solid #ccc;
+			border-radius: 8px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: #666;
+			font-size: 18px;
+			position: relative;
+			}
+			.image-placeholder img {
+			max-width: 100%;
+			max-height: 100%;
+			border-radius: 8px;
+			}
+			.instructions {
+			font-size: 16px;
+			color: #555;
+			margin: 20px 0;
+			}
+            p
+            {
+                font-size: 25px !important;
+            }
+            h2
+            {
+                font-size: 40px !important;
+                padding-top: 40px !important;
+                padding-bottom: 30px !important;
+            }
+            .image-placeholder {
+            padding-bottom: 20px;
+            width: 100%;
+            height: 300px;
+            background-color: #ffffff;
+            border: 0px solid #ffffff !important;
+            border-radius: 8px !important;
+            display: flex ;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff !important;
+            font-size: 18px;
+            position: relative;
+            }
+            footer {
+            background-color: #aeaeae;
+            text-align: center;
+            font-size: 12px;
+            color: #000000;
+            position: absolute;
+            top: 90%;
+            bottom: 0px;
+            width: 100%;
+            }
+            footer a {
+                color: #777;
+                text-decoration: none;
+                margin: 0 5px;
+            }
+            footer a:hover {
+                color: #f27921;
+            }
+
+            /* Social Media Icons */
+            .footer-social {
+                margin-top: 10px;
+            }
+            .footer-social a {
+                margin: 0 10px;
+                font-size: 24px;
+                color: #333;
+                transition: color 0.3s ease;
+            }
+            .footer-social a:hover {
+                color: #6082b6;
+            }
+            .links
+            {
+                padding-top: 20px;
+            }
+            .intro-text {
+                font-size: 1.5em;
+                font-weight: 300;
+                margin: 100px 0 30px;
+                color: #333;
+                text-align: center;
+            }
+    
+            .intro-text .bold {
+                font-weight: bold;
+            }
+    
+            /* Features Section Styles */
+            .features-container {
+                margin-top: 50px; /* Adds space above the feature section */
+            }
+            
+            .features {
+                display: flex;
+                justify-content: center;
+                gap: 65px;
+            }
+            .first
+            {
+                background-image: url(https://png.pngtree.com/png-vector/20220726/ourmid/pngtree-face-recognition-system-in-smartphone-png-image_6086873.png);
+            }
+            .second
+            {
+                background-image: url(https://png.pngtree.com/png-vector/20220724/ourmid/pngtree-facial-recognition-system-concept-png-image_6060965.png);
+            }
+            .third
+            {
+                background-image: url(https://static.vecteezy.com/system/resources/previews/015/393/070/non_2x/face-id-access-face-recognition-system-for-verification-woman-hold-phone-with-facial-biometric-identification-system-mobile-phone-users-getting-access-to-data-after-biometrical-checking-vector.jpg);
+            }
+            
+            #feature {
+                width: 400px; /* Set the width for a wide box */
+                height: 380px; /* Reduce the height for a shorter box */
+                border-radius: 8px;
+                overflow: hidden;
+                position: relative;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+                cursor: pointer;
+            }
+            
+            #feature:hover {
+                transform: translateY(-10px);
+                box-shadow: 1px 5px 20px #d88245;
+            }
+            
+            #feature .content {
+                font-size: 1.2rem;
+                color: #fff;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                text-align: center;
+                opacity: 0;
+                background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+                transition: opacity 0.3s ease-in-out;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            
+            #feature:hover .content {
+                opacity: 1;
+            }
+            
+            #feature .content h2 {
+                margin: 0;
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+            
+            #feature .content span {
+                font-size: 1.6rem;
+                margin-top: 5px;
+            }
+            
+    
+            /* Button Styling */
+            .btn-start-verification {
+                background-color: #f27921;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 8px;
+                font-size: 14px;
+                cursor: pointer;
+                margin-top: 50px;
+            }
+    
+            .btn-start-verification:hover {
+                background-color: white;
+                color: #f27921;
+                border: 1px solid #f27921;
+            }
+    
+            /* Add spacing after the Start Verification button */
+            .btn-spacing {
+                margin-bottom: 40px;
+            }
+		</style>
+	</head>
+	<body data-new-gr-c-s-check-loaded="14.1213.0" data-gr-ext-installed="">
+		<!-- Header -->
+		<nav class="header navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-white" href="#">
+                    <img src="{% static 'logo.png' %}" alt="LivenessDetect Logo" width="120" height="120" class="me-2">LivenessDetect </a>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'detect' %}">Face Liveness Verification</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Log Out</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+		<!-- Main Content -->
+		<!-- Welcome and Introduction Section -->
+        <div class="intro-text">
+            <div class="bold">Welcome, {{ name }}! to Liveness Detection</div>
+            <p>Experience the next level of face verification with our cutting-edge liveness detection technology. Ensure your identity is protected at all times.</p>
+        </div>
+        <div class="features-container">
+            <div class="container text-center">
+                <div class="features">
+                    <div id="feature" class="first">
+                        <div class="content">
+                            <h2>Real-Time Detection</h2>
+                            <span>Ensure your system is accurate and up-to-date with real-time face verification.</span>
+                        </div>
+                    </div>
+                    <div id="feature" class="second">
+                        <div class="content">
+                            <h2>High Accuracy</h2>
+                            <span>Achieve maximum precision with our state-of-the-art detection models.</span>
+                        </div>
+                    </div>
+                    <div id="feature" class="third">
+                        <div class="content">
+                            <h2>Easy to Use</h2>
+                            <span>Simple, intuitive interface for seamless integration into your projects.</span>
+                        </div>
+                    </div>
+                </div>
+                <button onclick= "window.location.href='{% url 'detect' %}'" class="btn-start-verification btn-spacing">
+                    Start Verification
+                </button>
+            </div>
+        </div>
+        
+		<!-- Bootstrap JS Bundle (with Popper) -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+		<script>
+			const detectBtn = document.getElementById('detect-btn');
+			
+			detectBtn.addEventListener('click', () => {
+			    fetch('/run-test/', {
+			        method: 'GET',
+			    })
+			    .then(response => response.json())
+			    .then(data => {
+			        if (data.status === 'success') {
+			            console.log('Script Output:', data.output);
+			            alert('Detection complete!');
+			        } else {
+			            console.error('Error:', data.error);
+			            alert('An error occurred! Check console for details.');
+			        }
+			    })
+			    .catch(error => {
+			        console.error('Fetch Error:', error);
+			        alert('Failed to communicate with the server.');
+			    });
+			});
+		</script>
+	</body>
+    <footer>
+        <div class="links">
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a> |
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="footer-social">
+            <!-- Social Media Icons -->
+            <a href="#" target="_blank" title="Facebook"><i class="fa fa-facebook-square"></i></a>
+            <a href="#" target="_blank" title="Twitter"><i class="fa fa-twitter-square"></i></a>
+            <a href="#" target="_blank" title="LinkedIn"><i class="fa fa-linkedin-square"></i></a>
+        </div>
+    </footer>
+</html>
