@@ -76,3 +76,8 @@ Liveness Detection System is a web application developed using Django that imple
 ## Usage
 - Navigate to the home page to either log in or sign up.
 - After logging in, you can access the liveness detection feature.
+- Once logged in, activate the webcam to begin the face liveness detection process.
+- The system will carefully analyze the live video feed, frame by frame, to verify if the face is real or spoofed.
+- If the face passes the liveness check, the system will confirm successful authentication.
+- The process ensures secure and seamless authentication.
+
